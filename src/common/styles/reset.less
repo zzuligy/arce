@@ -1,0 +1,140 @@
+/*
+* reset.scss
+* Reset the styles of common elements
+*/
+
+html,
+body,
+h1,
+h2,
+h3,
+div,
+p,
+form,
+ul,
+ol,
+li,
+table,
+th,
+td,
+label,
+pre,
+input,
+select,
+textarea {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ol, ul {
+  margin-bottom: 0!important;
+}
+
+table {
+  tr {
+    th {
+      font-size: 14px;
+      font-weight: normal;
+    }
+    td {
+      font-size: 12px;
+    }
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input {
+  outline: none;
+}
+
+body {
+  min-width: 1024px;
+  background: #f5f6fb;
+  -ms-overflow-style: scrollbar; /*auto | none | scrollbar | -ms-autohiding-scrollbar*/
+  font-family: 'Microsoft YaHei', Arial, sans-serif!important;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #fff;
+  -webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  height: 5px;
+  background-color: #999;
+  -webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  width: 5px;
+  background-color: #ccc;
+  -webkit-border-radius: 6px;
+}
+.text-theme {
+  color: #42a9f4;
+}
+
+div.has-error {
+  input {
+    border: 1px solid #fe896d !important;
+  }
+  span {
+    color: #fe896d !important;
+  }
+}
+
+// 通用组件
+input.text,
+input.password {
+  width: 160px;
+  font-size: 14px;
+  background: none;
+  color: #fff;
+  padding: 4px 8px;
+  border: none;
+  border-bottom: solid 1px rgba(255, 255, 255, @normal-opacity);
+  vertical-align: middle;
+  &:focus {
+    border-bottom-color: #fff;
+  }
+  &:disabled {
+    border: none;
+    cursor: default;
+  }
+  &.error,
+  &.error:focus {
+    border-bottom-color: #e8748c;
+  }
+  &.long {
+    width: 380px;
+  }
+}
+// d3-tip
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.1);
+  color: #000;
+  border-radius: 2px;
+  z-index: 10;
+}

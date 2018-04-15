@@ -1,0 +1,295 @@
+// 菜单字体颜色
+@font-color: #ddd;
+@font-active-color: #fff;
+// 一级菜单背景色
+@wrapper-background: #212a31;
+@wrapper-active-background: #5a5f65;
+// 二级菜单背景色
+@minor-menu-background: #394754;
+@minor-menu-active-background: #3a5163;
+// 三级菜单背景色
+@three-level-active-background: #42a9f5;
+
+#header {
+  color: @font-active-color;
+  width: 100%;
+  padding: 0;
+  .nav {
+    margin: 0 !important;
+  }
+  #primary-menu > li {
+    position: static;
+    display: inline-block;
+  }
+  .header-inner {
+    .flex-all();
+    height: @header-height;
+    line-height: @header-height;
+    padding-left: 25px;
+    background: @wrapper-background;
+    .header-menu {
+      .display-flex();
+      .justify-content();
+      .align-items();
+      cursor: pointer;
+      .header-logo {
+        content: "";
+        display: inline-block;
+        width: 100px;
+        height: 20px;
+        line-height: 20px;
+        background: url(/skyeye/logo/menu_logo.png) no-repeat;
+        background-size: contain;
+        vertical-align: middle;
+        text-align: center;
+        // .icon(100px, 20px, url('/skyeye/logo/menu_logo.png'));
+      }
+      #primary-menu {
+        height: 100%;
+        padding-left: 30px;
+        & > li {
+          a {
+            padding: 0 15px;
+            color: @font-color;
+            background: none;
+            &:hover {
+              color: @font-active-color;
+              background: @wrapper-active-background;
+            }
+          }
+          a.router-link-active {
+            color: @font-active-color;
+            background: @wrapper-active-background;
+          }
+        }
+        .router-link-active + .minor-menu {
+          display: block;
+        }
+        .minor-menu {
+          display: none;
+          position: absolute;
+          left: 0;
+          right: 0;
+          width: 100%;
+          height: 50px !important;
+          background: @minor-menu-background;
+          .navbar-collapse.collapse {
+            padding: 0;
+          }
+          .navbar-nav {
+            // 二级菜单hover时三级菜单出现
+            .hover-show {
+              &:hover {
+                & + .dropdown-menu {
+                  display: block;
+                }
+              }
+            }
+            & > li {
+              a {
+                min-width: 120px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                color: @font-color;
+                background: none;
+                &:hover {
+                  color: @font-active-color;
+                  background: @minor-menu-active-background;
+                  border-bottom: 5px solid @three-level-active-background;
+                }
+              }
+              a.router-link-active {
+                color: @font-active-color;
+                background: @minor-menu-active-background;
+                border-bottom: 5px solid @three-level-active-background;
+              }
+              .dropdown-menu {
+                min-width: 120px;
+                padding: 0;
+                border: none;
+                &:hover {
+                  display: block;
+                }
+                & > li {
+                  a {
+                    height: 50px;
+                    text-align: center;
+                    line-height: 44px;
+                    color: @font-color;
+                    background: @minor-menu-background;
+                    border-bottom: none;
+                    &:hover {
+                      color: @font-active-color;
+                      background: @three-level-active-background;
+                    }
+                  }
+                  a.router-link-active {
+                    color: @font-active-color;
+                    background: @three-level-active-background;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .header-control {
+      .flex-all(@align-items:center, @justify-content: flex-end);
+      .message-box {
+        position: relative;
+        cursor: pointer;
+        margin-right: 25px;
+        i {
+          font-size: 18px;
+          vertical-align: middle;
+        }
+        .badge {
+          transform: translate(100%, 30%);
+          border: none;
+        }
+      }
+      .header-setting {
+        // .icon(18px, 18px, url('../header/resource/setting.png'));
+        margin: 0 10px;
+        cursor: pointer;
+      }
+    }
+
+    .header-upgrade {
+      // .icon(24px, 24px, url('../header/resource/header-upgrade.gif'));
+      position: absolute;
+      margin-top: (@header-height - 24px) / 2;
+      right: 160px;
+      cursor: pointer;
+    }
+  }
+}
+
+.user-box {
+  @active-background: #465e74;
+  display: inline-block;
+  position: relative;
+
+  .user {
+    min-width: 100px;
+    max-width: 200px;
+    text-overflow: ellipsis;
+    padding: 0 10px;
+    cursor: pointer;
+    &::before {
+      // .icon(18px, 18px, url('../userAdmin/resource/user-avatar.png'));
+      margin-right: 5px;
+    }
+    &::after {
+      // .icon(18px, 18px, url('../userAdmin/resource/arrows-down.png'));
+      transition: all 0.3s;
+    }
+    .fui-icon--Admin {
+      position: relative;
+      bottom: -3px;
+      font-size: 18px;
+    }
+    .fui-icon--Angle-down {
+      font-size: 12px;
+    }
+    &.active {
+      // background: @active-background;
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .user-menu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1500;
+    top: @header-height;
+
+    li {
+      line-height: 28px;
+      cursor: pointer;
+      background: #394752;
+      text-align: center;
+
+      &:hover {
+        background: #485e73;
+      }
+
+      &:last-child {
+        border-radius: 0 0 3px 3px;
+      }
+    }
+  }
+}
+
+.user-content {
+  text-align: center;
+
+  h2 {
+    margin-bottom: 30px;
+  }
+
+  .field {
+    line-height: 50px;
+    text-align: left;
+    font-size: 0;
+
+    label {
+      display: inline-block;
+      width: 90px;
+      margin-right: 20px;
+      font-size: 16px;
+      text-align: right;
+      vertical-align: top;
+    }
+
+    input.text,
+    input.password {
+      width: 200px;
+    }
+  }
+
+  .button-wrapper {
+    margin-top: 50px;
+  }
+}
+
+.user-message {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 501;
+  background: rgba(86, 94, 103, 0.8);
+}
+
+@media screen and (max-width: 1366px) {
+  .fast-report-datepicker .fui-datepicker-picker-panel__body {
+    height: 246px !important;
+    overflow: scroll !important;
+  }
+}
+
+.dropdown-menu {
+  padding: 0;
+  margin: 0;
+  border: 1px solid #dce4ec;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+  & > li {
+    & > a {
+      padding: 4px 10px;
+      min-height: 28px;
+      line-height: 1.5;
+      &:hover,
+      &:focus {
+        background-color: #e5e9f2;
+      }
+    }
+  }
+}

@@ -1,0 +1,162 @@
+// scss => less
+.icon(@width, @height, @bg: transparent, @ext) {
+  content: '';
+  display: inline-block;
+  width: @width;
+  height: @height;
+  line-height: @height;
+  margin-bottom: 3px;
+  background: @bg no-repeat @ext;
+  vertical-align: middle;
+  text-align: center;
+}
+// ie10对flex-pack的支持度极其不友好 center正常，space-between和 space-around为justify，
+// 其他有些忽略。先暂分为两中，其中一个-ms-flex-pack: justify。另外个无。
+.flex-all(@direction: row, @justify-content: space-between, @align-items: stretch) {
+  display: -ms-flexbox;
+  -ms-flex-direction: @direction;
+  -ms-flex-align: @align-items;
+  -ms-flex-pack: justify;
+  -ms-flex-pack: @justify-content;
+  .flex-common(@direction, @justify-content, @align-items);
+}
+
+.flex-other (@direction: row, @justify-content: space-between, @align-items: stretch) {
+  display: -ms-flexbox;
+  -ms-flex-direction: @direction;
+  -ms-flex-align: @align-items;
+  -ms-flex-pack: @justify-content;
+  .flex-common(@direction, @justify-content, @align-items);
+}
+.flex-common(@direction: row, @justify-content: space-between, @align-items: stretch) {
+  .display-flex();
+  -webkit-flex-direction: @direction;
+  -webkit-align-items: @align-items;
+  -webkit-justify-content: @justify-content;
+  // display: flex;
+  flex-direction: @direction;
+  align-items: @align-items;
+  justify-content: @justify-content;
+}
+
+.flex-item(@grow: 1, @shrink: 0) {
+  -ms-flex-positive: @grow;
+  -ms-flex-negative: @shrink;
+  -webkit-flex-grow: @grow;
+  -webkit-flex-shrink: @shrink;
+  flex-grow: @grow;
+  flex-shrink: @shrink;
+}
+
+.display-flex() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flex(@flex-grow, @flex-shrink: 1) {
+  -webkit-box-flex: @flex-grow @flex-shrink;
+  -moz-box-flex: @flex-grow @flex-shrink;
+  -webkit-flex: @flex-grow @flex-shrink;
+  -ms-flex: @flex-grow @flex-shrink;
+  flex: @flex-grow @flex-shrink;
+}
+
+.flex-flow(@flex-direction: row, @flex-wrap: wrap) {
+  -webkit-flex-flow: @flex-direction @flex-wrap;
+  -moz-flex-flow: @flex-direction @flex-wrap;
+  -ms-flex-flow: @flex-direction @flex-wrap;
+  -o-flex-flow: @flex-direction @flex-wrap;
+  flex-flow: @flex-direction @flex-wrap;
+}
+
+.flex-direction(@value) {
+  -webkit-flex-direction: @value;
+  -ms-flex-direction: @value;
+  flex-direction: @value;
+}
+
+.justify-content(@pos: center) {   /*水平居中*/
+  -webkit-box-pack: @pos;
+  -moz-box-pack: @pos;
+  -ms-flex-pack: @pos;
+  -webkit-justify-content: @pos;
+  justify-content: @pos;
+}
+
+.align-items(@pos: center) {        /*垂直居中*/
+  -webkit-box-align: @pos;
+  -moz-box-align: @pos;
+  -ms-flex-align: @pos;
+  -webkit-align-items: @pos;
+  align-items: @pos;
+}
+
+.input-focus(@border-width: 1.5px) {
+  color: @plain-white;
+  border-bottom: solid @border-width @plain-white;
+  opacity: @highlight-opacity;
+}
+
+.btn-hover(@border-width: 1px) {
+  color: @plain-white;
+  border: solid @border-width @plain-white;
+  opacity: @highlight-opacity;
+}
+
+.transition(@property: all, @duration: .15s, @timingFn: ease-in) {
+  -webkit-transition: @arguments;
+  -moz-transition: @arguments;
+  -o-transition: @arguments;
+  transition: @arguments;
+}
+
+.transform-origin(@pos1, @pos2) {
+  -webkit-transform-origin: @arguments;
+  -moz-transform-origin: @arguments;
+  -ms-transform-origin: @arguments;
+  -o-transform-origin: @arguments;
+  transform-origin: @arguments;
+}
+
+.transform-rotate(@angle) {
+  -webkit-transform: rotate(@angle);
+  -moz-transform: rotate(@angle);
+  -ms-transform: rotate(@angle);
+  -o-transform: rotate(@angle);
+  transform: rotate(@angle);
+}
+
+.transform-translate(@x, @y) {
+  -webkit-transform: translate(@x, @y);
+  -moz-transform: translate(@x, @y);
+  -ms-transform: translate(@x, @y);
+  -o-transform: translate(@x, @y);
+  transform: translate(@x, @y);
+}
+
+.bg-gradient(@from, @color1, @color2) {
+  // Safari 4-5, Chrome 1-9
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@color1), to(@color2));
+  background: -webkit-linear-gradient(@from, @color1, @color2);
+  background: -moz-linear-gradient(@from, @color1, @color2);
+  background: -ms-linear-gradient(@from, @color1, @color2);
+  background: -o-linear-gradient(@from, @color1, @color2);
+}
+
+.text-overflow() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.blur(@pixel) {
+  -webkit-filter: blur(@pixel);
+  -moz-filter: blur(@pixel);
+  -ms-filter: blur(@pixel);
+  filter: blur(@pixel);
+  // filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=@pixel, MakeShadow=false);
+}
+

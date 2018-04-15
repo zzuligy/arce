@@ -1,0 +1,183 @@
+/*
+* variables.less
+* Common colors & common variables
+*/
+//setting
+@setting-list-background: #506273;
+@setting-content-background: #f5f6fb;
+
+// model
+@skyeye-z-modal: 997;
+
+// dialog
+@skyeye-z-dialog: 998;
+
+@content-max-width: 1280px;
+
+// opacity
+@lowlight-opacity: 0.15;
+@normal-opacity: 0.5;
+@highlight-opacity: 1;
+
+// colors
+@light-black: rgba(0, 0, 0, @lowlight-opacity);
+@bright-white: rgba(255, 255, 255, 0.7);
+@plain-white: #fff;
+@dark-white: rgba(255, 255, 255, @normal-opacity);
+@darker-white: rgba(255, 255, 255, @lowlight-opacity);
+@darkest-white: rgba(255, 255, 255, 0.1);
+@deep-blue: rgb(57, 71, 83);
+@gray-black: #f1f4fa;
+@gray-white: #f7f8fc;
+@gray-border: #e7eaf2;
+@table-tr-hover: #deecf7;
+@json: #7b8a8b;
+@modal-gray: #2c2c41;
+@common-green: rgb(152, 203, 96);
+@common-yellow: rgb(248, 188, 87);
+@common-red: rgb(232, 116, 140);
+@common-blue: rgb(66, 169, 244);
+@c-modal: #20282f;
+@c-header-bg: #394754;
+@c-header-bg-bright: #465e74;
+@c-threat-table: #f1f4fa;
+@c-threat-table-border: #e7eaf1;
+@c-threat-table-tr: #f2f6fd;
+@c-axis-text: rgb(147, 159, 170);
+
+/*viz app variables*/
+// sizes
+@header-height: 30px;
+
+// search-panel
+
+@btn-blue-bg: rgb(66, 169, 244);
+@btn-blue-hover: #6cc1ff;
+@black-color: #000;
+@gray: #aaa;
+
+// color state
+@skyeye-color-success: rgb(28, 184, 65);
+@skyeye-color-error: rgb(202, 60, 60);
+@skyeye-color-warning: rgb(223, 117, 20);
+@skyeye-color-secondary: rgb(66, 184, 221);
+// z-index
+@skyeye-z-default: 1;
+@skyeye-z-drags: 2;
+@skyeye-z-tips: 3;
+@skyeye-z-message: 4;
+@skyeye-z-dialog: 5;
+
+// padding & margin
+@skyeye-padding: 8px;
+@skyeye-margin: 10px;
+// font-size
+@skyeye-font-default: 12px;
+@skyeye-font-title: 14px;
+@skyeye-font-title-large: 16px;
+
+/* 浅色系 */
+// color
+@skyeye-color-bg: #f0f3fa;
+@skyeye-color-text: #394754;
+@skyeye-color-white: #fff;
+@skyeye-color-main: #42a9f4;
+// dock color
+@skyeye-color-dock-bg: #bac0cc;
+@skyeye-color-dock-border: #c9cdd4;
+@skyeye-color-dock-active: #42a9f4;
+// card color
+@skyeye-color-card-bg: #e1e5ed;
+@skyeye-color-card-border: #c9cdd4;
+@skyeye-color-card-text: #394754;
+@skyeye-color-card-button-bg: #fff;
+@skyeye-color-card-button-active-bg: #42a9f4;
+// topo color
+@skyeye-color-topo-node: #6b7a88;
+@skyeye-color-topo-brush: #fff;
+@skyeye-color-topo-node-brushed: #fff;
+@skyeye-color-topo-link: #3d3d3f;
+@skyeye-color-topo-legend: #42a9f4;
+@skyeye-color-topo-tips-bg: #fff;
+@skyeye-color-topo-right-menu-bg: #fff;
+@skyeye-color-topo-right-menu-text: #394754;
+@skyeye-color-topo-right-menu-border: #42a9f4;
+@skyeye-color-topo-map-fg: #42a9f4;
+
+
+// 场景化
+@skyeye-color-scene-primary: #42a9f4;
+@skyeye-color-scene-primary-light: #6dc0ff;
+@skyeye-color-scene-danger: #fa5c37;
+@skyeye-color-scene-danger-light: #ff886d;
+@skyeye-color-scene-warning: #ffa401;
+@skyeye-color-scene-warning-light: #ffc464;
+@skyeye-color-scene-info: #00b3ca;
+@skyeye-color-scene-info-light: #54cedd;
+@skyeye-color-scene-success: #94c136;
+@skyeye-color-scene-success-light: #afd77f;
+@skyeye-color-scene-mint: #189e93;
+@skyeye-color-scene-mint-light: #6ec1b9;
+@skyeye-color-scene-flesh: #fd925e;
+@skyeye-color-scene-flesh-light: #ffb087;
+@skyeye-color-scene-blue: #4c80f8;
+@skyeye-color-scene-blue-light: #78a0ff;
+@skyeye-color-scene-purple: #b95dc8;
+@skyeye-color-scene-purple-light: #d195db;
+@skyeye-color-scene-dark: #212a31;
+@skyeye-color-scene-dark-light: #5a5f65;
+@skyeye-color-scene-pink: #ed3374;
+@skyeye-color-scene-pink-light: #f47ba6;
+@skyeye-color-scene-yellow: #ffeb3c;
+@skyeye-color-scene-yellow-light: #fef27a;
+@skyeye-color-scene-green: #4cb050;
+@skyeye-color-scene-green-light: #6cc771;
+@skyeye-color-scene-other14: #7e57c2;
+@skyeye-color-scene-other14-light: #9366e1;
+@skyeye-color-scene-other15: #cddc39;
+@skyeye-color-scene-other15-light: #dbe659;
+@skyeye-color-scene-other16: #9e9e24;
+@skyeye-color-scene-other16-light: #c8c72e;
+@skyeye-color-scene-other17: #607d8b;
+@skyeye-color-scene-other17-light: #607d8b;
+@skyeye-color-scene-other18: #fec107;
+@skyeye-color-scene-other18-light: #fed558;
+@skyeye-color-scene-other19: #4052b6;
+@skyeye-color-scene-other19-light: #4f67e5;
+@skyeye-color-scene-other20: #6d4d42;
+@skyeye-color-scene-other20-light: #916656;
+@skyeye-color-scene-graph-background: #FBFCFE;
+@skyeye-color-panel-background: #fbfcfd;
+@skyeye-color-scene-font-color: #394754;
+@skyeye-color-scene-disabled: #dadee5;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
