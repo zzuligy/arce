@@ -31,10 +31,12 @@ function createApp () {
   }).$mount('#app')
 }
 
-const run = async function () {
+const run =  function () {
   try {
-    await menuModel.start(routerInstance)
-    return createApp()
+    let promise =  menuModel.start(routerInstance)
+    promise.then(()=>{
+      return createApp()
+    })
   }
   catch (err) {
     createApp(err)
